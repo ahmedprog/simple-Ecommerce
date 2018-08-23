@@ -21,6 +21,14 @@ class CreateAdminsTable extends Migration
             $table->rememberToken();            
             $table->timestamps();
         });
+        Schema::table('admins', function() {
+            DB::table('admins')->insert([
+                'username' => 'Admin',
+                'email' => 'admin@admin.com',
+                'password' => bcrypt(123456),
+            ]);
+           
+        });
     }
 
     /**
