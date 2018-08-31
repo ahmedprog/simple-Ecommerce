@@ -8,6 +8,7 @@ use App\Categories;
 use App\images;
 use Illuminate\Support\Facades\Storage;
 use DataTables;
+use Image;
 
 class ProductsController extends Controller
 {
@@ -83,20 +84,13 @@ class ProductsController extends Controller
         }
         $Product=Products::create($request->all());
 
-        $images=[];
         if($request->hasFile('image')){
-            foreach($request->image as $key=> $image){
-                $extension  = $image->getClientOriginalExtension();
-                $fileNameStore= $key .'_'.time() .'.'.$extension;
-                $images[]=  $fileNameStore;
-                $image->move(public_path("/img/products_image"), $fileNameStore);
-            }
-            $images=implode(' | ',$images);
+            $images=$this->saveImages($request->image);
+            images::create([
+                'product_id'=>$Product->id,
+                'image'=> $images
+            ]);
         }
-        images::create([
-            'product_id'=>$Product->id,
-            'image'=> $images
-        ]);
         return response()->json([
             'success' => true,
             'message' => 'Product Created'
@@ -150,16 +144,9 @@ class ProductsController extends Controller
         if($data->fails()){
             return response()->json(['errors'=>$data->errors()->toArray()]) ;
         }
-        $Product=Products::findorFail($id)->update($request->all());
-        $images=[];
+        Products::findorFail($id)->update($request->all());
         if($request->hasFile('image')){
-            foreach($request->image as $key=> $image){
-                $extension  = $image->getClientOriginalExtension();
-                $fileNameStore= $key .'_'.time() .'.'.$extension;
-                $images[]=  $fileNameStore;
-                $image->move(public_path("/img/products_image"), $fileNameStore);
-            }
-            $images=implode(' | ',$images);
+            $images=$this->saveImages($request->image);
         }
 
         if(!empty($images)){
@@ -176,6 +163,21 @@ class ProductsController extends Controller
         ]);
 
 
+    }
+    protected function saveImages($images){
+        $outPut=[];
+        foreach($images as $key=> $image){
+            $extension  = $image->getClientOriginalExtension();
+            $fileNameStore= $key .'_'.time() .'.'.$extension;
+            $outPut[]=  $fileNameStore;
+            $ourImage= Image::make($image)
+                ->resize(null, 300, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            $ourImage->save(public_path("/img/products_image/".$fileNameStore),50);
+        }
+
+         return implode(' | ',$outPut);
     }
 
     /**

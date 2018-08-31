@@ -15,7 +15,7 @@
    <link href="{{ asset('cpanel/css/plugins/dataTables/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
 
    <link href="{{ asset('cpanel/css/animate.css') }}" rel="stylesheet">
-   {{--<link href="{{ asset('cpanel/css/style.css') }}" rel="stylesheet">--}}
+   <link href="{{ asset('cpanel/css/style.css') }}" rel="stylesheet">
 
    <link href="{{ asset('cpanel/css/plugins/colorpicker/bootstrap-colorpicker.min.css') }}" rel="stylesheet">
    <link href="{{ asset('cpanel/css/plugins/cropper/cropper.min.css') }}" rel="stylesheet">
@@ -27,7 +27,6 @@
    {{--iCheck--}}
    <link href="{{ asset('cpanel/css/plugins/iCheck/all.css') }}" rel="stylesheet">
 
-   {{--   <script src="{{ asset('cpanel/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>--}}
    <!-- Sweet Alert -->
    <link href="{{ asset('cpanel/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
    <link href="{{ asset('cpanel/css/style.css') }}" rel="stylesheet">
