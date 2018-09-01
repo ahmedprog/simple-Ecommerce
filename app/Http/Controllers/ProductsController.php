@@ -108,6 +108,8 @@ class ProductsController extends Controller
         $product = Products::findOrFail($id);  
         $photos = explode(' | ',$product->images->image );
         $categories = Categories::all();  
+        dd($product);
+
         return view('cpanel.product_detail',compact('product','categories','photos'));
         
     }
