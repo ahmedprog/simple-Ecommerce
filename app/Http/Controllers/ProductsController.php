@@ -105,7 +105,9 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        $product = Products::findOrFail($id);  
+        $product = Products::findOrFail($id);
+        dd($product);
+
         $photos = explode(' | ',$product->images->image );
         $categories = Categories::all();  
         dd($product);
