@@ -49,7 +49,8 @@
       href="//cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css"/>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/all.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.10/summernote.css">
 <link rel="stylesheet" href="{{ url('adminlte/plugins/datetimepicker/bootstrap-datetimepicker.min.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fakeloader@1.0.0/dist/jquery.fakeloader.min.css">

@@ -1,7 +1,9 @@
-@include('cpanel.layouts.inc.head')
+{{--@include('cpanel.layouts.inc.head')--}}
 
-<body class="gray-bg">
-    <div class="fakeloader"></div>
+{{--<body class="gray-bg">--}}
+@extends('cpanel.layouts.auth')
+@section('content')
+
 
     <div id="login" style="background-image: url({{ asset('cpanel/img/3.jpg') }}); background-size: cover; background-repeat: no-repeat; height: 100%; ">
         <div class="container">
@@ -78,6 +80,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             <div class="row">
                 <div class="col-md-3 col-md-offset-8" style=" position:fixed;bottom:4px;">
@@ -94,32 +97,32 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+@stop
 
-    <!-- Mainly scripts -->
-    <script src="{{ asset('cpanel/js/jquery-2.1.1.js') }}"></script>
-    <script src="{{ asset('cpanel/js/bootstrap.min.js') }}"></script>
-    <!-- Custom and plugin javascript -->
-    <script src="{{ asset('cpanel/js/inspinia.js') }}"></script>
-    <!-- <script src="{{ asset('cpanel/js/plugins/pace/pace.min.js') }}"></script> -->
-    <script src="{{ asset('cpanel/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
-    <!-- MENU -->
-    <script src="{{ asset('cpanel/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
-    <!-- Dual Listbox -->
-    <script src="{{ asset('cpanel/js/plugins/dualListbox/jquery.bootstrap-duallistbox.js') }}"></script>
-    <script src="{{ asset('cpanel/js/fakeLoader.min.js') }}"></script>
-    <!-- iCheck -->
-    <script src="{{ asset('cpanel/js/plugins/iCheck/icheck.min.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
-            });
-        });
-    </script>
+    {{--<!-- Mainly scripts -->--}}
+    {{--<script src="{{ asset('cpanel/js/jquery-2.1.1.js') }}"></script>--}}
+    {{--<script src="{{ asset('cpanel/js/bootstrap.min.js') }}"></script>--}}
+    {{--<!-- Custom and plugin javascript -->--}}
+    {{--<script src="{{ asset('cpanel/js/inspinia.js') }}"></script>--}}
+    {{--<!-- <script src="{{ asset('cpanel/js/plugins/pace/pace.min.js') }}"></script> -->--}}
+    {{--<script src="{{ asset('cpanel/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>--}}
+    {{--<!-- MENU -->--}}
+    {{--<script src="{{ asset('cpanel/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>--}}
+    {{--<!-- Dual Listbox -->--}}
+    {{--<script src="{{ asset('cpanel/js/plugins/dualListbox/jquery.bootstrap-duallistbox.js') }}"></script>--}}
+    {{--<script src="{{ asset('cpanel/js/fakeLoader.min.js') }}"></script>--}}
+    {{--<!-- iCheck -->--}}
+    {{--<script src="{{ asset('cpanel/js/plugins/iCheck/icheck.min.js') }}"></script>--}}
+    {{--<script>--}}
+        {{--$(document).ready(function () {--}}
+            {{--$('.i-checks').iCheck({--}}
+                {{--checkboxClass: 'icheckbox_square-green',--}}
+                {{--radioClass: 'iradio_square-green',--}}
+            {{--});--}}
+        {{--});--}}
+    {{--</script>--}}
 
-</body>
-</html>
+{{--</body>--}}
+{{--</html>--}}

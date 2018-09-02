@@ -7,7 +7,7 @@
 
 
 <body class="hold-transition skin-blue sidebar-mini">
-
+<div class="fakeloader"></div>
 <div id="wrapper">
 
 @include('cpanel.partials.topbar')

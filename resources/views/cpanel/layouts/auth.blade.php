@@ -2,23 +2,23 @@
 <html lang="en">
 
 <head>
-    @include('partials.head')
+    @include('cpanel.partials.head')
 </head>
 
 <body class="page-header-fixed">
 
-    <div style="margin-top: 10%;"></div>
+    {{--<div style="margin-top: 10%;"></div>--}}
 
-    <div class="container-fluid">
+    <div >
         @yield('content')
     </div>
 
     <div class="scroll-to-top"
-         style="display: none;">
+         style=" display: none; ">
         <i class="fa fa-arrow-up"></i>
     </div>
 
-    @include('partials.javascripts')
+    @include('cpanel.partials.javascripts')
 
 </body>
 </html>

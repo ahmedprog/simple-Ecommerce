@@ -1,7 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
-/public/img/products_image/*
+/public/storage
+/public/Cpanel/*
 /storage/*.key
 /vendor
 /.idea

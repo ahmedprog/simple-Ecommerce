@@ -10,6 +10,25 @@
                     {{--<span class="title">@lang('quickadmin.qa_dashboard')</span>--}}
                 {{--</a>--}}
             {{--</li>--}}
+            <li>
+                <div>
+                        <span>
+                        <img alt="image"  src="{{ asset('cpanel/img/logo.png') }}" style="max-width: 215px;" />
+                        </span>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class=" m-t-xs pull-right"><span class="main-color font-bold">Welcome ,  </span> <strong class="font-bold white"> {{Auth::guard('admins')->user('admin')->username}}   </strong>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <a href="{{ URL('admin/admin-sign-out') }}" class="fa fa-sign-out " style="font-size: 22px; margin-top: 4px"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="logo-element">
+                    Penta Levels
+                </div>
+            </li>
 
             @can('user_management_access')
             <li class="treeview">

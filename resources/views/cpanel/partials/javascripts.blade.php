@@ -38,6 +38,32 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.12/dist/sweetalert2.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.12/dist/sweetalert2.min.css">
 
+<script src="https://cdn.jsdelivr.net/npm/jquery.fakeloader@1.0.0/dist/jquery.fakeloader.min.js"></script>
+<!-- iCheck -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+<script>
+
+
+
+    $(".fakeloader").fakeLoader({
+        timeToHide:1300,
+        zIndex:99999999,
+        bgColor:"#34495e",
+        spinner:"Spinner1"
+    });
+
+    $(window).load(function() {
+        $("body").fadeIn("slow");
+    });
+
+
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
 
 <script>
     window._token = '{{ csrf_token() }}';
