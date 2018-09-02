@@ -106,11 +106,11 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product = Products::findOrFail($id);
-        dd($product);
-
-        $photos = explode(' | ',$product->images->image );
-        $categories = Categories::all();  
-        dd($product);
+       $photos=[];
+        if ($product->images){
+            $photos = explode(' | ',$product->images->image );
+        }
+        $categories = Categories::all();
 
         return view('cpanel.product_detail',compact('product','categories','photos'));
         

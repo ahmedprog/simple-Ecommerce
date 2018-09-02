@@ -8,7 +8,7 @@
    <meta name="author" content="">
    <meta name="csrf-token" content="{{ csrf_token() }}">
    <title>Penta Levels</title>
-   <link href="{{ asset('cpanel/css/bootstrap.css') }}" rel="stylesheet">
+   <link href="{{ asset('cpanel/css/bootstrap.min.css') }}" rel="stylesheet">
    <link href="{{ asset('cpanel/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
    {{--dataTables--}}
    <link href="{{ asset('cpanel/css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
@@ -29,7 +29,6 @@
 
    <!-- Sweet Alert -->
    <link href="{{ asset('cpanel/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
-   <link href="{{ asset('cpanel/css/style.css') }}" rel="stylesheet">
    <link rel="stylesheet" href="{{ asset('cpanel/css/fakeLoader.css') }}">
 
    <link rel="icon" href="{{ asset('cpanel/img/logo-tab.png') }}">

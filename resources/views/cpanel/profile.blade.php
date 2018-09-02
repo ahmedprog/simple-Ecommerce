@@ -1,14 +1,12 @@
-@extends('cpanel.layouts.index') @section('content')
+@extends('cpanel.layouts.app') @section('content')
 
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="wrapper wrapper-content animated fadeIn">
-
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
+                    <div class="box">
+                        <div class="box-header">
                             <div class="row">
                                 <div class="col-md-3">
                                     <h3 class="title m-t-sm" style="margin-left: -2px">Profile</h3>
@@ -162,7 +160,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 

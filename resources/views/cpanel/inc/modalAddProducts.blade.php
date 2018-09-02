@@ -8,7 +8,7 @@
                 <h3 class="title modal-title"></h3>
             </div>
             <div class="modal-body">
-                <div class="row m-t-sm">
+                <div class="">
                     <div class="row">
                         <div id="errorsMSG"></div>
                         <!--  -->

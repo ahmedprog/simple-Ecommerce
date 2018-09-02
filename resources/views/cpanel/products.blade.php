@@ -1,18 +1,14 @@
- @extends('cpanel.layouts.index')
- @section('css')
-
-    @endsection
-
+ @extends('cpanel.layouts.app')
  @section('content')
 <div class="row">
     <div class="col-lg-12">
-        <div class="wrapper wrapper-content animated ">
+        <div class=" ">
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Header -->
-                    <div class="ibox float-e-margins">
+                    <div class="box">
                         <!-- Button to Add new Product -->
-                        <div class="ibox-title">
+                        <div class="box-header">
                             <button class="btn btn-info btn-rounded"  onclick="addForm()" >
                                 Add New Product
                                 <i class="fa fa-plus-circle" aria-hidden="true" style="padding-left: 22px"></i>
@@ -29,7 +25,7 @@
                         <div class="clearfix"></div>
 
                         <!-- All products here -->
-                        <div class="ibox-content">
+                        <div class="box-body">
 
                             <div class="table-responsive">
                                 <table style="width: 100%;" id="products-table" class="table table-striped table-bordered table-hover " >
@@ -54,7 +50,7 @@
             </div>
             <!-- end modal -->
             <!-- Modal edit -->
-            @include('cpanel.inc.modalEditProducts')
+            {{--@include('cpanel.inc.modalEditProducts')--}}
         </div>
     </div>
 </div>

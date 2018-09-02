@@ -1,34 +1,34 @@
- @extends('cpanel.layouts.index') @section('content')
+ @extends('cpanel.layouts.app') @section('content')
 
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="wrapper wrapper-content animated ">
+    <div class="">
       <div class="row">
         <div class="col-lg-12">
-          <div class="ibox float-e-margins">
-            <div class="ibox-title">
+          <div class="box">
+            <div class="box-header">
               <div class="row">
                 <div class="col-md-3">
                   <h3 class="title m-t-sm">Users</h3>
                 </div>
                 <div class="clearfix"></div>
-                <div class="col-md-3" style="position: absolute;">
-                  <div class="form-group">
+                {{--<div class="col-md-3" style="position: absolute;">--}}
+                  {{--<div class="form-group">--}}
 
-                    <select  class="form-control" id="sel1" style="margin-top: 13px;margin-left: 14px;">
-                      <option value="" disabled selected hidden>Filtration</option>
-                           @foreach($statuses as $status)
-                            <option value="{{$status->id}}">{{$status->statusName}}</option>
-                          @endforeach
-                    </select>
-                  </div>
-                </div>
+                    {{--<select  class="form-control" id="sel1" style="margin-top: 13px;margin-left: 14px;">--}}
+                      {{--<option value="" disabled selected hidden>Filtration</option>--}}
+                           {{--@foreach($statuses as $status)--}}
+                            {{--<option value="{{$status->id}}">{{$status->statusName}}</option>--}}
+                          {{--@endforeach--}}
+                    {{--</select>--}}
+                  {{--</div>--}}
+                {{--</div>--}}
 
               </div>
 
             </div>
-            <div class="ibox-content">
+            <div class="box-body">
               <div class="table-responsive">
                 <table class="table table-striped table-bordered table-hover dataTables-example">
                   <thead>
@@ -97,7 +97,7 @@
                   <h3 class="title">Edit</h3>
                 </div>
                 <div class="modal-body">
-                  <div class="row m-t-sm">
+                  <div class="row">
                     <div class="col-sm-12 ">
                       <form role="form" method="post" id="EditUser">
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

@@ -1,25 +1,28 @@
 
-@extends('cpanel.layouts.index') 
+{{--@extends('cpanel.layouts.index') --}}
+@extends('cpanel.layouts.app')
+
 @section('content')
             <div class="row">
                <div class="col-lg-12">
-                  <div class="wrapper wrapper-content animated ">
+                  <div class=" animated ">
                      <div class="row">
                         <div class="col-lg-12">
-                           <div class="ibox float-e-margins">
-                              <div class="ibox-title">
-                                 <button class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add">&nbsp;&nbsp;Add New Category <i class="fa fa-plus-circle" aria-hidden="true" style="padding-left: 22px"></i></button>
+                            <button class="btn btn-info btn-rounded" data-toggle="modal" data-target="#add">&nbsp;&nbsp;Add New Category <i class="fa fa-plus-circle" aria-hidden="true" style="padding-left: 22px"></i></button>
+
+                           <div class="box  box-solid">
+                              <div class=" box-header">
                                  <br>
-                                 <h3 class="title m-t-sm">Categories</h3>
+                                 <h3 class="title m-t-sm ">Categories</h3>
                               </div>
-                              <div class="ibox-content">
+                              <div class="box-body">
                                  <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover dataTables-example" >
+                                    <table class="text-center table table-striped table-bordered table-hover" >
                                        <thead>
                                           <tr class="frist">
                                              <th>ID</th>
                                              <th>Category Name</th>
-                                             <th></th>
+                                             <th>Actions</th>
                                           </tr>
                                        </thead>
                                        <tbody>
@@ -90,7 +93,7 @@
                                        <h3 class="title">Edit</h3>
                                     </div>
                                     <div class="modal-body">
-                                       <div class="row m-t-lg">
+                                       <div class="">
                                           {{--  Edit Categories  --}}
                                           {!! Form::open([ 'method' => 'PUT','role'=>'form' ,'id'=>'EditCategory']) !!}                                                
                                                       <div class="form-group">
@@ -154,16 +157,27 @@ $(document).on("click", ".sendIdDelete", function () {
 
     swal({
         title: 'Are you sure?',
-        text: 'Some text.',
+        text: "You won't be able to revert this!",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#DD6B55',
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No.'
-    },function (){
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then(function(result){
+        if (result.value) {
         $("#DeleteCategory").attr("action", "/admin/"+myId).submit();
-
+        swal(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+        )
+    }
 });
+
+
+//     ,function (){
+//
+// });
 
 })
 </script>
