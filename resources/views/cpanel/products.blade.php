@@ -218,6 +218,7 @@ $(function () {
 
      function deleteProduct(id){
          var csrf_token = $('meta[name="csrf-token"]').attr('content');
+
          swal({
              title: 'Are you sure?',
              text: "You won't be able to revert this!",
@@ -226,29 +227,33 @@ $(function () {
              cancelButtonColor: '#d33',
              confirmButtonColor: '#3085d6',
              confirmButtonText: 'Yes, delete it!'
-         },function () {
-             $.ajax({
-                 url : "{{ url('/admin/products')}}" + '/' + id,
-                 type : "POST",
-                 data : {'_method' : 'DELETE', '_token' : csrf_token},
-                 success : function(data) {
-                     table.ajax.reload();
-                     swal({
-                         title: 'Success!',
-                         text: data.message,
-                         type: 'success',
-                         timer: '1500'
-                     })
-                 },
-                 error : function () {
-                     swal({
-                         title: 'Oops...',
-                         text: data.message,
-                         type: 'error',
-                         timer: '1500'
-                     })
-                 }
-             });
+         }).then(function () {
+
+                 $.ajax({
+                     url : "{{ url('/admin/products')}}" + '/' + id,
+                     type : "POST",
+                     data : {'_method' : 'DELETE', '_token' : csrf_token},
+                     success : function(data) {
+                         console.log('ssss');
+                         table.ajax.reload();
+                         swal({
+                             title: 'Success!',
+                             text: data.message,
+                             type: 'success',
+                             timer: '1500'
+                         })
+                     },
+                     error : function () {
+                         console.log('eeeeeeeee');
+
+                         swal({
+                             title: 'Oops...',
+                             text: data.message,
+                             type: 'error',
+                             timer: '1500'
+                         })
+                     }
+                 });
          });
      }
 
