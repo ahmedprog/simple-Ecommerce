@@ -1,31 +1,26 @@
  @extends('cpanel.layouts.app') @section('content')
 
-
 <div class="row">
-  <div class="col-lg-12">
-    <div class="">
-      <div class="row">
         <div class="col-lg-12">
           <div class="box">
             <div class="box-header">
               <div class="row">
                 <div class="col-md-3">
-                  <h3 class="title m-t-sm">Users</h3>
+                  <h3 class="title m-t-sm">Users List</h3>
                 </div>
-                <div class="clearfix"></div>
-                {{--<div class="col-md-3" style="position: absolute;">--}}
-                  {{--<div class="form-group">--}}
-
-                    {{--<select  class="form-control" id="sel1" style="margin-top: 13px;margin-left: 14px;">--}}
-                      {{--<option value="" disabled selected hidden>Filtration</option>--}}
-                           {{--@foreach($statuses as $status)--}}
-                            {{--<option value="{{$status->id}}">{{$status->statusName}}</option>--}}
-                          {{--@endforeach--}}
-                    {{--</select>--}}
-                  {{--</div>--}}
-                {{--</div>--}}
+                <div class="col-md-3 form-group pull-right"  >
+                    <select  class="form-control" id="filtration" >
+                        <option value="" disabled selected hidden>Filtration</option>
+                        @foreach($statuses as $status)
+                            <option value="{{$status->id}}"
+                            {{isset($filterId)&& $filterId ==$status->id ?'selected':''}}
+                            >{{$status->statusName}}</option>
+                        @endforeach
+                    </select>
+                </div>
 
               </div>
+                <div class="clearfix"></div>
 
             </div>
             <div class="box-body">
@@ -41,9 +36,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($users as $user)
+                    @foreach($users as $i=> $user)
                     <tr class="gradeX">
-                      <td>{{$user->id}}</td>
+                      <td>{{++$i}}</td>
                       <td class="center">{{$user->name}}</td>
                       <td>{{$user->mobile}}</td>
                       <td>
@@ -83,10 +78,16 @@
 
                   </tbody>
                 </table>
+                  <div class="text-center">{{ $users->links() }}</div>
               </div>
             </div>
           </div>
-        
+
+
+
+
+
+
           <!-- Modal -->
           <div id="edit" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -165,12 +166,9 @@
                 </div>
              </div>
           </div>
-       </div>>
+       </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
 
 @endsection @section('js')
@@ -201,12 +199,15 @@
     });
 
     $(document).on("click", ".sendIdDelete", function () {
-    var myId = $(this).data('id');
-    $("#Deleteuser").attr("action", "/admin/users/"+myId);
-    
- 
-})
+        var myId = $(this).data('id');
+        $("#Deleteuser").attr("action", "/admin/users/"+myId);
+    });
+    $('#filtration').on('change',function () {
+        let targetUrl="{{url('admin/users')}}/"+this.value;
+        window.location.href =targetUrl;
+    })
   
 </script>
+
 <!-- Page-Level Scripts -->
 @endsection

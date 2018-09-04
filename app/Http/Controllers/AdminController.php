@@ -24,10 +24,16 @@ class AdminController extends Controller
 
 
 
-public function allusers(){
-    $users = User::all();
-    $statuses = stasus::all();
-    return view('cpanel.users',compact('users','statuses'));
+public function allusers($filterId=null){
+    $data['users'] = User::latest();
+//        ;
+    if ($filterId != null){
+        $data['filterId']=$filterId;
+        $data['users']->where('status_id',$filterId);
+    }
+    $data['users']=$data['users']->paginate(10);
+    $data['statuses'] = stasus::all();
+    return view('cpanel.users',$data);
 }
 public function updateuser(Request $request , $id){
 

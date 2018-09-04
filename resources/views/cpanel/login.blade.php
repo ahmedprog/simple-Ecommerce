@@ -5,17 +5,17 @@
 @section('content')
 
 
-    <div id="login" style="background-image: url({{ asset('cpanel/img/3.jpg') }}); background-size: cover; background-repeat: no-repeat; height: 100%; ">
+    <div id="login" style="background-image: url({{ asset('adminlte/img/3.jpg') }});  position:absolute;width:100%; background-size: cover; background-repeat: no-repeat; height: 100%; ">
         <div class="container">
             @include('cpanel.layouts.inc.messages')
             <div class="row" style="margin-top: 15%">
 
                 <div class="col-md-2 col-md-offset-3">
-                    <img src="{{ asset('cpanel/img/sign in.png') }}">
+                    <img style="margin-top:  65px;width: 100%;max-width: 100%;" src="{{ asset('adminlte/img/logo-easylife-blanc.png') }}">
                 </div>
                 <div class="col-md-4">
                     <form class="m-t log" method="POST" role="form" action="{{ url('admin/login') }}">
-                        <h1>Penta Levels</h1>
+                        <h1 class="text-center text-bold " style="color:white;">Easy Life Shopping </h1>
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <input type="email" class="form-control" name="email" placeholder="Email Address" value="{{ old('email') }}" required autofocus> @if ($errors->has('email'))
@@ -37,7 +37,7 @@
                                 <label>
                                     <input name="remember" {{ old( 'remember') ? 'checked' : '' }} class="i-checks" type="checkbox">
                                 </label>
-                                <span class="color-white">Remember Me</span>
+                                <span style="color:white;">Remember Me</span>
                                 <span class="pull-right">
                                     <a class="color-white" data-toggle="modal" data-target="#add">Forget Password</a>
                                 </span>
@@ -86,12 +86,13 @@
                 <div class="col-md-3 col-md-offset-8" style=" position:fixed;bottom:4px;">
                     <div class="row">
                         <div class="col-md-2">
-                            <img src="{{ asset('cpanel/img/footer.png') }}">
+                            <i class="fa fa-3x fa-shopping-cart" style="color:white;"></i>
+{{--                            <img src="{{ asset('adminlte/img/logo (1).png') }}">--}}
                         </div>
                         <div class="col-md-10">
-                            <p class="main-color">Copyrights © Penta Levels 2017</p>
+                            <p class="main-color">Copyrights © Ahmed Nasser 2018</p>
                             <p class="color-white" style="font-size: 10px">
-                                <a href="http://paladox.com/" target="_blank">Designed & Developed by Paladox</a>
+                                <a href="http://paladox.com/" target="_blank">Designed & Developed by Ahmed-Nasser</a>
                             </p>
                         </div>
                     </div>
@@ -101,28 +102,3 @@
     </div>
 @stop
 
-    {{--<!-- Mainly scripts -->--}}
-    {{--<script src="{{ asset('cpanel/js/jquery-2.1.1.js') }}"></script>--}}
-    {{--<script src="{{ asset('cpanel/js/bootstrap.min.js') }}"></script>--}}
-    {{--<!-- Custom and plugin javascript -->--}}
-    {{--<script src="{{ asset('cpanel/js/inspinia.js') }}"></script>--}}
-    {{--<!-- <script src="{{ asset('cpanel/js/plugins/pace/pace.min.js') }}"></script> -->--}}
-    {{--<script src="{{ asset('cpanel/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>--}}
-    {{--<!-- MENU -->--}}
-    {{--<script src="{{ asset('cpanel/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>--}}
-    {{--<!-- Dual Listbox -->--}}
-    {{--<script src="{{ asset('cpanel/js/plugins/dualListbox/jquery.bootstrap-duallistbox.js') }}"></script>--}}
-    {{--<script src="{{ asset('cpanel/js/fakeLoader.min.js') }}"></script>--}}
-    {{--<!-- iCheck -->--}}
-    {{--<script src="{{ asset('cpanel/js/plugins/iCheck/icheck.min.js') }}"></script>--}}
-    {{--<script>--}}
-        {{--$(document).ready(function () {--}}
-            {{--$('.i-checks').iCheck({--}}
-                {{--checkboxClass: 'icheckbox_square-green',--}}
-                {{--radioClass: 'iradio_square-green',--}}
-            {{--});--}}
-        {{--});--}}
-    {{--</script>--}}
-
-{{--</body>--}}
-{{--</html>--}}

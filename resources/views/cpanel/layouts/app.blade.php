@@ -6,7 +6,7 @@
 </head>
 
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
 <div class="fakeloader"></div>
 <div id="wrapper">
 

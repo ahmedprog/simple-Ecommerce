@@ -28,7 +28,7 @@ Route::put('/update','AdminController@updateAdmin')->name('admin.update');
 //    Route::delete('/products/{id}', 'ProductsController@destroy');
 //    Route::get('/product_detail/{id}','ProductsController@show');
 /*=====================users Route===================================*/       
-    Route::get('/users', 'AdminController@allUsers');
+    Route::get('/users/{filterId?}', 'AdminController@allUsers');
     Route::put('/users/{id}', 'AdminController@updateuser');
     Route::delete('/users/{id}', 'AdminController@destroy');
     

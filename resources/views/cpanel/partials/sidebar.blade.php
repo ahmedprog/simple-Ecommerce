@@ -11,23 +11,21 @@
                 {{--</a>--}}
             {{--</li>--}}
             <li>
-                <div>
-                        <span>
-                        <img alt="image"  src="{{ asset('cpanel/img/logo.png') }}" style="max-width: 215px;" />
-                        </span>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class=" m-t-xs pull-right"><span class="main-color font-bold">Welcome ,  </span> <strong class="font-bold white"> {{Auth::guard('admins')->user('admin')->username}}   </strong>
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <a href="{{ URL('admin/admin-sign-out') }}" class="fa fa-sign-out " style="font-size: 22px; margin-top: 4px"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="logo-element">
-                    Penta Levels
-                </div>
+                <a href="{{url('/')}}">
+                <i  aria-hidden="true"></i>
+                <span class="nav-label">
+                <img alt="image"  src="{{ asset('adminlte/img/logo-easylife-blanc.png') }}" style="max-width: 180px;" />
+                </span>
+                </a>
+            </li>
+            <li >
+                <a href="{{ URL('admin/admin-sign-out') }}" >
+                    <span class="nav-label" style="padding-left:40px;color:white;">
+                        <span class="main-color font-bold">Welcome ,  </span>
+                        <strong class="font-bold white"> {{Auth::guard('admins')->user('admin')->username}}</strong>
+                    </span>
+                    <i class="fa fa-sign-out " style=" font-size: 22px; margin-top: 4px"  aria-hidden="true"></i>
+                </a>
             </li>
 
             @can('user_management_access')
@@ -94,12 +92,6 @@
                 {{--</a>--}}
             {{--</li>--}}
 
-            <li>
-                <a href="#logout" onclick="$('#logout').submit();">
-                    <i class="fa fa-arrow-left"></i>
-                    <span class="title">@lang('quickadmin.qa_logout')</span>
-                </a>
-            </li>
         </ul>
         {{--<ul class="nav metismenu" id="side-menu">--}}
             {{--<li class="nav-header">--}}

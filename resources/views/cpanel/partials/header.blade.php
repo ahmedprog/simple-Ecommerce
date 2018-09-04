@@ -1,9 +1,8 @@
 <div class="page-header-inner">
     <div class="page-header-inner">
         <div class="navbar-header">
-            <a href="{{ url('/') }}"
-               class="navbar-brand">
-                @lang('quickadmin.quickadmin_title')
+            <a   href="{{ url('/') }}">
+                    Easy life Shopping
             </a>
         </div>
         <a href="javascript:;"
