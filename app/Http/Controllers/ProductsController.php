@@ -175,7 +175,7 @@ class ProductsController extends Controller
             $fileNameStore= $key .'_'.time() .'.'.$extension;
             $outPut[]=  $fileNameStore;
             $ourImage= Image::make($image)
-                ->resize(null, 300, function ($constraint) {
+                ->resize(430, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
             $ourImage->save(public_path("/img/products_image/".$fileNameStore),50);

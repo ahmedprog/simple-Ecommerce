@@ -41,6 +41,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery.fakeloader@1.0.0/dist/jquery.fakeloader.min.js"></script>
 <!-- iCheck -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+
 <script>
 
 

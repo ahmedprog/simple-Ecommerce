@@ -22,55 +22,42 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <div class="ibox product-detail">
-                        <div class="ibox-content">
+                    <div class="product-detail">
+                        <div class="">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <!--  -->
                                     @if($photos)
-                                        <div id="carouselExampleControls" class="carousel slide" >
-                                            <div class="carousel-inner">
+
+                                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                            <!-- Indicators -->
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                            </ol>
+
+                                            <!-- Wrapper for slides -->
+                                            <div class="carousel-inner" role="listbox">
+
                                                 @foreach($photos as $photo)
 
-                                                    <div class="carousel-item {{ preg_match('/^mena_[0-9]+/', $photo)? ' active' : '' }}">
-                                                        <img class="d-block w-100" src="{{url('/img/products_image').'/'.$photo}}">
-                                                    </div>
+                                                <div class="item {{preg_match('/^main_[0-9]+/', $photo)? ' active ' : '' }}">
+                                                    <img src="{{url('/img/products_image').'/'.$photo}}" alt="...">
+                                                </div>
                                                 @endforeach
 
                                             </div>
-                                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                                            <!-- Controls -->
+                                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                                 <span class="sr-only">Previous</span>
                                             </a>
-                                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                                 <span class="sr-only">Next</span>
                                             </a>
                                         </div>
-                                    {{--<div id="myCarousel" class="carousel slide" data-ride="carousel">--}}
-                                        {{--<!-- Indicators -->--}}
-                                        {{--<ol class="carousel-indicators">--}}
-                                            {{--<li data-target="#myCarousel" data-slide-to="0" class=""></li>--}}
-                                            {{--<li data-target="#myCarousel" data-slide-to="1" class=""></li>--}}
-                                            {{--<li data-target="#myCarousel" data-slide-to="2" class="active"></li>--}}
-                                        {{--</ol>--}}
-
-                                        {{--<!-- Wrapper for slides -->--}}
-                                        {{--<div class="carousel-inner">--}}
-
-
-                                        {{--</div>--}}
-                                        {{--<!-- Left and right controls -->--}}
-                                        {{--<a class="left carousel-control" href="#myCarousel" data-slide="prev">--}}
-                                            {{--<span class="glyphicon glyphicon-chevron-left"></span>--}}
-                                            {{--<span class="sr-only">Previous</span>--}}
-                                        {{--</a>--}}
-                                        {{--<a class="right carousel-control" href="#myCarousel" data-slide="next">--}}
-                                            {{--<span class="glyphicon glyphicon-chevron-right"></span>--}}
-                                            {{--<span class="sr-only">Next</span>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
-                                    <!--  -->
                                     @else
                                     <p> No Image for this product</p>
                                     @endif
@@ -115,17 +102,13 @@
 @stop
    @section('js')
 
-       <script src="{{ asset('cpanel/js/plugins/slick/slick.min.js') }}"></script>
+       {{--<script src="{{ asset('cpanel/js/plugins/slick/slick.min.js') }}"></script>--}}
 
 
      <script>
     $(document).ready(function(){
 
-        $('.carousel').carousel();
 
-        $('.product-images').slick({
-            dots: true
-        });
 
     });
 
