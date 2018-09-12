@@ -31,7 +31,7 @@
    <link href="{{ asset('cpanel/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
    <link rel="stylesheet" href="{{ asset('cpanel/css/fakeLoader.css') }}">
 
-   <link rel="icon" href="{{ asset('cpanel/img/logo-tab.png') }}">
-
+   <link rel="icon" href="{{ asset('cpanel/img/logo.png') }}">
   @yield('css')
+  @stack('css')
 </head>

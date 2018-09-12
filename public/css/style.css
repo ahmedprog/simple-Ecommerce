@@ -303,10 +303,10 @@ a:focus {
 .btn-danger:active,
 .btn-danger.active,
 .open .dropdown-toggle.btn-danger,
-/* .btn-danger:active:focus,
+.btn-danger:active:focus,
 .btn-danger:active:hover,
 .btn-danger.active:hover,
-.btn-danger.active:focus  */{
+.btn-danger.active:focus {
   background-color: transparent;
   border-color: #fff;
   color: #FFFFFF;
@@ -1522,12 +1522,6 @@ right connector from last child*/
 .tree li a:hover+ul ul::before{
   border-color:  #94a0b4;
 }
-    .alert-success,
-  .alert-danger {
-      position: absolute;
-      width: 50%;
-      top: 5PX;
-      LEFT: 25%;
-}
+
 /*Thats all. I hope you enjoyed it.
 Thanks :)*/

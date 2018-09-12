@@ -167,8 +167,8 @@ $(function () {
          });
          $('#formAdd').validator().on('submit', function (e) {
              if (!e.isDefaultPrevented()){
-        console.log(new FormData($("#formAdd")));
-            console.log($('#formAdd').serialize());
+        // console.log(new FormData($("#formAdd")));
+        //     console.log($('#formAdd').serialize());
                  let url,
                      id= $('#productID').val();
                  if (save_method == 'add') url = "{{ url('/admin/products') }}";

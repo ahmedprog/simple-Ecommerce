@@ -1,14 +1,11 @@
-
-
-@extends('layouts.index') 
+@extends('layouts.index')
 @section('content')
-
- <!-- ==========Cover ========== -->
    <section id="home" name="home">
       <div id="headerwrap" style="background: url({{ asset('img/header-bg.jpg') }}); background-repeat: no-repeat; background-size: cover;">
          <div class= "container">
             <div class="logo">
                <img src="{{ asset('img/logo.png') }}">
+               <span class="white-color bold  h2">Easy Make Money & Easy Shopping</span>
             </div>
             <br>
             <div class="row circle">

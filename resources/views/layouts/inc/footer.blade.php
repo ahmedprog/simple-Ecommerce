@@ -4,11 +4,11 @@
          <div class="container">
             <div class="row">
                <div class="col-md-6">
-                  <p>PentaLevels copyrights © 2017  all rights reserved.</p>
+                  <p>Ahmed Nasser copyrights © 2018  all rights reserved.</p>
                </div>
                <div class="col-md-6 ">
                   <p class=" pull-right">Designed & Developed by <span>
-                     <img src="{{ asset('img/paladox_logo.png') }}">
+                     <img src="{{ asset('img/logo.png') }}">
                   </span></p>
                </div>
             </div>
@@ -27,7 +27,8 @@
             $('#'+myData).modal('show');
         </script>
         @endif
-   
-   @yield('js')
+
+        @yield('js')
+        @stack('js')
 </body>
 </html>

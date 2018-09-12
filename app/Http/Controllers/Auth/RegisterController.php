@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Illuminate\Http\Request;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\InDirect;
@@ -55,7 +57,20 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    public function register(Request $request)
+    {
+        $validator=$this->validator($request->all());
 
+        if ($validator->fails()){
+            return response()->json(['errors'=>$validator->errors()->messages()]);
+        }
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+        return response()->json(true,200);
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -64,8 +79,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        
-       return Validator::make($data, [
+        $validator=Validator::make($data, [
             'name' => 'required|string|max:255',
             'address' => 'required|string',
             'govid' => 'required|numeric|min:14|unique:users',
@@ -79,7 +93,7 @@ class RegisterController extends Controller
                 }
             }]
         ]);
-        
+        return $validator;
 
      
     }

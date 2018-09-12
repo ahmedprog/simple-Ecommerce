@@ -7,21 +7,14 @@
       <div id="headerwrap" style="background: url(img/product_page.jpg); background-repeat: no-repeat; background-size: cover;">
             <div class="container products">
                   <div class="logo">
-                        <img src="img/logo.png">
+                        <img src="{{ asset('img/logo.png') }}">
+                        <span class="white-color bold  h2">Easy Make Money & Easy Shopping</span>
+
                   </div>
                   <br>
-                  <div class="row " style="text-align: left;">
-                        <div class="">
-                              <div class="col-md-3 col-md-offset-1">
-                                    <h3 class="bold ">Get an amazing</h3>
-                                    <h1 class="bold">Products</h1>
-                              </div>
-                              <div class="col-md-4 col-md-offset-4">
-                                    <p class="regular">Selection are all the exclusive content designed by our team. Additionally, if you are
-                                          subscribed to our Premium account, when using this vector, you can avoid crediting
-                                          the image </p>
-                              </div>
-                        </div>
+                  <div class="">
+                        <h3 class="bold ">Get an amazing</h3>
+                        <h1 class="bold">Products</h1>
                   </div>
             </div>
             <!-- /container -->
@@ -44,43 +37,43 @@
                         @endforeach
                   </div>
                   <div class="col-md-10 m-t-20 m-b-40 rightside">
-                        <div class="row inp">
-                              <div class="col-md-7">
-                                    <div class="row">
-                                          <div class="col-md-9">
-                                                <div class="form-group">
-                                                      <input type="text" placeholder="What do you want ?" class="form-control" id="usr">
-                                                </div>
-                                          </div>
-                                          <div class="col-md-3">
-                                                <button class="btn btn-search btn-block">Search</button>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div class="col-md-5">
-                                    <form class="form-inline inline">
-                                          <div class="form-group  has-feedback">
-                                                <label for="" class="regular">Price from&nbsp;&nbsp;</label>
-                                                <input type="Number" class="form-control" id="">
+                        {{--<div class="row inp">--}}
+                              {{--<div class="col-md-7">--}}
+                                    {{--<div class="row">--}}
+                                          {{--<div class="col-md-9">--}}
+                                                {{--<div class="form-group">--}}
+                                                      {{--<input type="text" placeholder="What do you want ?" class="form-control" id="usr">--}}
+                                                {{--</div>--}}
+                                          {{--</div>--}}
+                                          {{--<div class="col-md-3">--}}
+                                                {{--<button class="btn btn-search btn-block">Search</button>--}}
+                                          {{--</div>--}}
+                                    {{--</div>--}}
+                              {{--</div>--}}
+                              {{--<div class="col-md-5">--}}
+                                    {{--<form class="form-inline inline">--}}
+                                          {{--<div class="form-group  has-feedback">--}}
+                                                {{--<label for="" class="regular">Price from&nbsp;&nbsp;</label>--}}
+                                                {{--<input type="Number" class="form-control" >--}}
 
-                                          </div>
-                                          <div class="form-group  has-feedback">
-                                                <label for="" class="regular">&nbsp;to&nbsp;</label>
-                                                <input type="Number" class="form-control" id="">
+                                          {{--</div>--}}
+                                          {{--<div class="form-group  has-feedback">--}}
+                                                {{--<label for="" class="regular">&nbsp;to&nbsp;</label>--}}
+                                                {{--<input type="Number" class="form-control" >--}}
 
-                                          </div>
-                                          <div class="form-group has-error has-feedback">
+                                          {{--</div>--}}
+                                          {{--<div class="form-group has-error has-feedback">--}}
 
 
-                                                <button class="btn btn-search btn-block">Filter</button>
-                                          </div>
-                                    </form>
-                              </div>
-                        </div>
+                                                {{--<button class="btn btn-search btn-block">Filter</button>--}}
+                                          {{--</div>--}}
+                                    {{--</form>--}}
+                              {{--</div>--}}
+                        {{--</div>--}}
                         <div class="row select-product m-b-20">
                               @foreach($products as $product)
                               <div class="col-md-4">
-                                    <a data-toggle="modal" class="sendProductdata" 
+                                    <a data-toggle="modal" class="sendProductdata"
                                     data-name="{{$product->name}}"
                                     data-des="{{$product->description}}"
                                     data-price="{{$product->price}}"
@@ -89,28 +82,35 @@
                                     data-id='{{$product->id}}'
                                      data-target="#myModal">
                                           <p class="title bold">{{$product->name}}</p>
-
-                                          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                          <div id="carousel_{{$product->id}}" class="carousel slide" data-ride="carousel">
                                                 <!-- Indicators -->
+                                                <ol class="carousel-indicators">
+                                                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                                </ol>
+
                                                 <!-- Wrapper for slides -->
-                                                <div class="carousel-inner">
-                                                      @foreach(explode(' | ',$product->images->image ) as $photo)
-                                                      <div class="item {{ preg_match('/^mena_[0-9]+/', $photo)? ' active' : '' }}">
-                                                            <img src="/img/products_image/{{$photo}}" alt="" style="width:100%;">
-                                                      </div>
+                                                <div class="carousel-inner" role="listbox">
+                                                      @foreach(explode(' | ',$product->images->image )  as $photo)
+
+                                                            <div class="item {{preg_match('/^main_[0-9]+/', $photo)? ' active ' : '' }}">
+                                                                  <img src="{{url('/img/products_image').'/'.$photo}}" style="width:100%;">
+                                                            </div>
                                                       @endforeach
+
                                                 </div>
-                                                <!-- Left and right controls -->
-                                                <a class="left carousel-control arrow" href="#myCarousel" data-slide="prev">
-                                                      <span class="glyphicon glyphicon-chevron-left"></span>
+
+                                                <!-- Controls -->
+                                                <a class="left carousel-control" href="#carousel_{{$product->id}}" role="button" data-slide="prev">
+                                                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                                                       <span class="sr-only">Previous</span>
                                                 </a>
-                                                <a class="right carousel-control arrow" href="#myCarousel" data-slide="next">
-                                                      <span class="glyphicon glyphicon-chevron-right"></span>
+                                                <a class="right carousel-control" href="#carousel_{{$product->id}}" role="button" data-slide="next">
+                                                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                                                       <span class="sr-only">Next</span>
                                                 </a>
                                           </div>
-                                          <!--  -->
                                           <p class="description regular m-t-10">
                                                 {!!$product->description!!}
                                           </p>
@@ -123,10 +123,6 @@
                                           Order</button>
                               </div>
                               @endforeach
-
-
-
-
                         </div>
                   </div>
                   <!-- Order Modal-->
@@ -170,11 +166,7 @@
                                                                         <!-- me art lab slider -->
                                                                         <div class='carousel-inner ' id='carou1'>
                                                                              
-                                                                              
-
                                                                         </div>
-
-                                                                        <!-- sag sol -->
 
                                                                   </div>
 
@@ -227,7 +219,7 @@
       </div>
 </section>
 @endsection @section('js')
-<script src='js/jquery.zoom.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js'></script>
 <script>
       $(document).ready(function () {
             $('#ex1').zoom();
@@ -240,7 +232,8 @@
     
       });
        $(document).on("click", ".sendProductdata", function () {
-        var myId = $(this).data('id');
+           $("#carou1, .smcarousel").html('');
+           var myId = $(this).data('id');
         var name = $(this).data('name');
         var price = $(this).data('price');
         var offer = $(this).data('offer');
@@ -248,20 +241,19 @@
          var images = $(this).data('images');
         var catID = $(this).data('productcatid');
       var image = images.split(" | ");
-      const regex = /^mena.[0-9]*/g;
-for (i = 0; i < image.length; i++) { 
-   
-var e ="<div class='item ' id='getactive"+i+"'> <span class='zoom' id='ex"+(i+1)+"'><img src='/img/products_image/"+image[i]+"' class='img-responsive imagepro' width='555' height='320' /> </span> </div>";
-            $("#carou1").append(e);
-var sm = " <li data-target='#carousel-custom' data-slide-to='"+i+"' class='getactive"+i+"'><img src='/img/products_image/"+image[i]+"'/></li>"
-            $(".smcarousel").append(sm);
+      const regex = /^main_.[0-9]*/g;
+for (i = 0; i < image.length; i++) {
+    var e ="<div class='item ' id='getactive"+i+"'><span class='zoom' id='ex"+(i+1)+"'>"+
+        "<img src='/img/products_image/"+image[i]+"' class='img-responsive imagepro' width='555' height='320' /> "+
+        "</span> </div>";
+    $("#carou1").append(e);
+    var sm = " <li data-target='#carousel-custom' data-slide-to='"+i+"' class='getactive"+i+"'>" +
+        "<img src='/img/products_image/"+image[i]+"'/></li>";
+    $(".smcarousel").append(sm);
 
-
-
-const regex = /^mena.[0-9]*/g;
-let m;
-
-while ((m = regex.exec(image[i])) !== null) {
+    const regex = /^main_.[0-9]*/g;
+    var m;
+    while ((m = regex.exec(image[i])) !== null) {
     // This is necessary to avoid infinite loops with zero-width matches
     if (m.index === regex.lastIndex) {
         regex.lastIndex++;
@@ -269,11 +261,10 @@ while ((m = regex.exec(image[i])) !== null) {
     
     // The result can be accessed through the `m`-variable.
     m.forEach((match, groupIndex) => {
-    $(".getactive"+i).addClass("active");
-    $("#getactive"+i).addClass("active");
-
+        $(".getactive"+i).addClass("active");
+        $("#getactive"+i).addClass("active");
     });
-}
+    }
 
       }
         console.log(myId);
