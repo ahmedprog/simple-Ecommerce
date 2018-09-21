@@ -30,6 +30,7 @@
                     <tr class="frist">
                       <th>ID</th>
                       <th>Name </th>
+                      <th>Referrer ID </th>
                       <th>Mobile</th>
                       <th>Status</th>
                       <th>Action</th>
@@ -38,8 +39,9 @@
                   <tbody>
                     @foreach($users as $i=> $user)
                     <tr class="gradeX">
-                      <td>{{++$i}}</td>
+                      <td>{{$user->id}}</td>
                       <td class="center">{{$user->name}}</td>
+                      <td>{{$user->refeler_id}}</td>
                       <td>{{$user->mobile}}</td>
                       <td>
                         <span  class='label  @switch($user->status->statusName)
