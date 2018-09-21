@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('govid')->unique();
             $table->bigInteger('mobile');           
             $table->integer('refeler_id')->unsigned()->nullable();                        
-            $table->string('status')->default('pending');            
+//            $table->string('status')->default('pending');
             $table->rememberToken();
             $table->timestamps();
         });
