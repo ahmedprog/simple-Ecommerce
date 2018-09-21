@@ -68,8 +68,8 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
         return response()->json(true,200);
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+//        return $this->registered($request, $user)
+//            ?: redirect($this->redirectPath());
     }
     /**
      * Get a validator for an incoming registration request.

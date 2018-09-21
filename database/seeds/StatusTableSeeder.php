@@ -14,19 +14,23 @@ class StatusTableSeeder extends Seeder
     public function run()
     {
        DB::table('stasuses')->insert([
+            'id'=>1,
             'statusName'=>'active',
             'color'=>'primary'
        ]);
        DB::table('stasuses')->insert([
+           'id'=>2,
             'statusName'=>'pending',
             'color'=>'warning'
        ]);
        DB::table('stasuses')->insert([
-            'statusName'=>'blocked',
+           'id'=>3,
+           'statusName'=>'blocked',
             'color'=>'danger'
        ]);
        DB::table('stasuses')->insert([
-            'statusName'=>'level complete',
+           'id'=>4,
+           'statusName'=>'level complete',
             'color'=>'success'
        ]);
     }
