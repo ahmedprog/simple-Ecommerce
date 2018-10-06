@@ -75,7 +75,7 @@ class helperController extends Controller
     public function checkorder($productId,$userId){
         //get product details
         $product=Products::findOrfail($productId);
-        $amount;
+        $amount='';
         //get real amount 
         if($product->offer == 0){
              $amount=$product->price; 

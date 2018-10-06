@@ -18,6 +18,9 @@
    <script src="{{ asset('js/jquery-2.1.1.js') }}"></script>
    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
    <script src="{{ asset('js/wow.min.js') }}"></script>
+   <!-- Sweet alert -->
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.12/dist/sweetalert2.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.12/dist/sweetalert2.min.css">
    <script src="{{ asset('js/main.j') }}s"></script>
         @if (session('open'))
         <div id="dom-target" style="display: none;">{{session('open')}}</div>
@@ -27,7 +30,6 @@
             $('#'+myData).modal('show');
         </script>
         @endif
-
         @yield('js')
         @stack('js')
 </body>

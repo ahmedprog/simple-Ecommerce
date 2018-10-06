@@ -28,7 +28,7 @@
                         <h2 class="bold">Categories</h2>
                         @foreach($categories as $category)
                         <div class="block">
-                              <a href="#{{$category->id}}">
+                              <a href="{{url('products?category='.$category->id)}}">
                                     <span>
                                           <i class="fa fa-square" aria-hidden="true"></i>&nbsp;</span>
                                     <span class="filter regular">{{$category->catName}}</span>
@@ -37,40 +37,9 @@
                         @endforeach
                   </div>
                   <div class="col-md-10 m-t-20 m-b-40 rightside">
-                        {{--<div class="row inp">--}}
-                              {{--<div class="col-md-7">--}}
-                                    {{--<div class="row">--}}
-                                          {{--<div class="col-md-9">--}}
-                                                {{--<div class="form-group">--}}
-                                                      {{--<input type="text" placeholder="What do you want ?" class="form-control" id="usr">--}}
-                                                {{--</div>--}}
-                                          {{--</div>--}}
-                                          {{--<div class="col-md-3">--}}
-                                                {{--<button class="btn btn-search btn-block">Search</button>--}}
-                                          {{--</div>--}}
-                                    {{--</div>--}}
-                              {{--</div>--}}
-                              {{--<div class="col-md-5">--}}
-                                    {{--<form class="form-inline inline">--}}
-                                          {{--<div class="form-group  has-feedback">--}}
-                                                {{--<label for="" class="regular">Price from&nbsp;&nbsp;</label>--}}
-                                                {{--<input type="Number" class="form-control" >--}}
 
-                                          {{--</div>--}}
-                                          {{--<div class="form-group  has-feedback">--}}
-                                                {{--<label for="" class="regular">&nbsp;to&nbsp;</label>--}}
-                                                {{--<input type="Number" class="form-control" >--}}
-
-                                          {{--</div>--}}
-                                          {{--<div class="form-group has-error has-feedback">--}}
-
-
-                                                {{--<button class="btn btn-search btn-block">Filter</button>--}}
-                                          {{--</div>--}}
-                                    {{--</form>--}}
-                              {{--</div>--}}
-                        {{--</div>--}}
                         <div class="row select-product m-b-20">
+                            @if($products->count())
                               @foreach($products as $product)
                               <div class="col-md-4">
                                     <a data-toggle="modal" class="sendProductdata"
@@ -117,102 +86,15 @@
                                           <span class="cancel bold">{{$product->price}} EGP</span>
                                           <span class="price bold">{{$product->offer}} EGP</span>
                                     </a>
-                                    <button class="btn btn-block btn-search m-t-5 sendProductId " data-toggle="modal" data-target="#confirm-order" data-id='{{$product->id}}'>
+                                    <button class="btn btn-block btn-search m-t-5  " onclick="makeOrder('{{$product->id}}')" data-id='{{$product->id}}'>
                                           <span>
                                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; &nbsp;</span>
                                           Order</button>
                               </div>
                               @endforeach
-                        </div>
-                  </div>
-                  <!-- Order Modal-->
-                  <div class="modal fade" id="confirm-order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                              <div class="modal-content">
-                                    <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                          <h4 class="modal-title" id="myModalLabel" style="padding-left: 14px;">Confirm Order</h4>
-                                    </div>
-                                    <div class="modal-body m-t">
-                                          <p>Do you want to Order this Product?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                          <button type="button" class="btn  pull-left" data-dismiss="modal">Cancel</button>
-                                          {!! Form::open(['method'=>'POST' ,'id'=>'OrederProduct']) !!} 
-                                          {{ csrf_field() }}                                          
-                                          <button type="submit" class="btn btn-danger btn-ok ">Order</button>
-                                          {!! Form::close() !!}
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <!-- Modal More detail -->
-                  <div id="myModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-                              <!-- Modal content-->
-                              <div class="modal-content">
-
-                                    <div class="modal-body">
-                                          <!--  -->
-                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                          <h3 class="bold m-b-20" id="prName"></h3>
-                                          <div class="preview col">
-                                                <!--  -->
-                                                <div class="row">
-                                                      <div class="col-xs-12">
-                                                            <div id='carousel-custom' class='carousel slide product_details' data-ride='carousel'>
-                                                                  <div class='carousel-outer'>
-                                                                        <!-- me art lab slider -->
-                                                                        <div class='carousel-inner ' id='carou1'>
-                                                                             
-                                                                        </div>
-
-                                                                  </div>
-
-                                                                  <!-- thumb -->
-                                                                  <ol class='carousel-indicators mCustomScrollbar meartlab smcarousel'>
-                                                                       
-                                                                  
-                                                                  </ol>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                                <!--  -->
-                                          </div>
-                                          <!--  -->
-                                          <div class="row">
-
-
-
-
-                                                <div class="col-lg-12" style="padding:0; font-size:17px">
-                                                      <span class="bold" style="color: #003b4f;font-size: 1.0em;">Category:</span>
-                                                      <b id="catName"style="font-size: .8em;">Category 1</b>
-                                                </div>
-
-                                                <div class="col-lg-12"  style="padding:0; font-size:20px">
-                                                      <span class="bold" style="color: #003b4f;font-size: 1em;">Price:</span>
-                                                      <b id="prOffer" style="font-size: .8em;"></b>
-                                                </div>
-
-
-                                                <div class="col-lg-12" style="padding:0; font-size:20px">
-                                                      <div>
-                                                            <span class="bold" style="color: #003b4f;font-size: 1.0em;">Description:</span>
-                                                      </div>
-                                                      <b class="m-b-20" id="desc" style="font-size: .8em;"></b>
-                                                </div>
-                                                <div class="col-md-6 col-md-offset-3">
-                                                       <button class="btn btn-block btn-search m-t-5 sendProductId " id='ordermodal' data-toggle="modal" data-target="#confirm-order" data-id=''>
-                                          <span>
-                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; &nbsp;</span>
-                                          Order</button>
-                                                </div>
-                                          </div>
-                                    </div>
-
-                              </div>
+                            @else
+                            <p class="text-center bg-danger"> There is no Product</p>
+                            @endif
                         </div>
                   </div>
             </div>
@@ -221,6 +103,21 @@
 @endsection @section('js')
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js'></script>
 <script>
+
+
+
+    function makeOrder(orderId) {
+        swal({
+            title: 'Do You need this product ?',
+            confirmButtonText:  'Yes',
+            cancelButtonText:  'Noا',
+            showCancelButton: true,
+            showCloseButton: true,
+        });
+        console.log(orderId);
+    }
+
+
       $(document).ready(function () {
             $('#ex1').zoom();
             $('#ex2').zoom();
@@ -267,7 +164,6 @@ for (i = 0; i < image.length; i++) {
     }
 
       }
-        console.log(myId);
         $("#EditProduct").attr("action", "/admin/products/" + myId);
         $("#prName").html( name);
         $("#prPrice").html( price);

@@ -46,7 +46,11 @@ class ProductsController extends Controller
 
     public function indexWeb()
     {
-        $products = Products::all();  
+        $products = Products::latest();
+        if (request('category')){
+            $products = $products->where('categories_id',request('category'));
+        }
+        $products=$products->get();
         $categories = Categories::all();      
         return view('products',compact('products','categories'));        
     
